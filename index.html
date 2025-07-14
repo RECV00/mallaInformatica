@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malla Curricular - Ingeniería en Sistemas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Plan de Estudios - Ingeniería en Sistemas</h1>
+            <p>Facultad de Ciencias Exactas y Naturales - Escuela de Informática</p>
+        </header>
+
+        <div class="progress-container">
+            <h3>Progreso de la carrera</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <div class="progress-text">
+                <span id="progress-text">0% completado (0/140 créditos)</span>
+                <p id="promedio-ponderado">Promedio ponderado: 0.00</p>
+            </div>
+        </div>
+
+        <div id="malla-curricular">
+            <!-- Los ciclos se generarán dinámicamente con JavaScript -->
+        </div>
+    </div>
+
+    <!-- Modal para detalles del curso -->
+    <div id="curso-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="modal-title" id="modal-curso-codigo"></h2>
+            <h3 class="modal-title" id="modal-curso-nombre"></h3>
+            
+            <div class="modal-info">
+            <p><strong>Créditos:</strong> <span id="modal-curso-creditos"></span></p>
+            <p><strong>Ciclo:</strong> <span id="modal-curso-ciclo"></span></p>
+            <p><strong>Categoría:</strong> <span id="modal-curso-categoria"></span></p>
+            <p><strong>Nota:</strong> <input type="number" id="modal-curso-nota" min="0" max="100" step="0.1" placeholder="Ingrese la nota"></p>
+        </div>
+            
+            <div class="modal-requisitos">
+                <h4>Requisitos:</h4>
+                <p id="modal-curso-requisitos"></p>
+                <h4>Desbloquea:</h4>
+                <p id="modal-curso-desbloquea"></p>
+            </div>
+            
+            <button id="btn-completar" class="btn-completar">Marcar como completado</button>
+            <button id="btn-desmarcar" class="btn-desmarcar">Desmarcar curso</button>
+        </div>
+    </div>
+
+    <script src="funtions.js"></script>
+</body>
+</html>
