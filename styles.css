@@ -1,4 +1,3 @@
-/* styles.css */
 :root {
   --general: #FFD6E0; /* Rosa pastel */
   --matematicas: #C1E7E3; /* Verde agua pastel */
@@ -187,11 +186,28 @@ h1, h2, h3 {
   margin-bottom: 15px;
 }
 
+.modal-info input[type="number"] {
+  width: 60px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
 .modal-requisitos {
   background-color: #f5f5f5;
   padding: 15px;
   border-radius: 5px;
   margin-top: 20px;
+}
+
+.requisito-cumplido {
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+.requisito-pendiente {
+  color: #f44336;
+  font-weight: bold;
 }
 
 /* Barra de progreso */
@@ -222,16 +238,44 @@ h1, h2, h3 {
   font-weight: bold;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .cursos-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .modal-content {
-    width: 90%;
-    margin: 20% auto;
-  }
+/* Botones */
+.btn-completar, .btn-desmarcar {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 15px;
+  transition: all 0.3s ease;
+}
+
+.btn-completar {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.btn-completar:hover {
+  background-color: #3e8e41;
+}
+
+.btn-completar:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.btn-desmarcar {
+  background-color: #f44336;
+  color: white;
+  margin-left: 10px;
+}
+
+.btn-desmarcar:hover {
+  background-color: #d32f2f;
+}
+
+.btn-desmarcar:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
 }
 
 /* Efecto de desbloqueo */
@@ -245,120 +289,25 @@ h1, h2, h3 {
   animation: unlock 0.5s ease;
 }
 
-/* Tooltip */
-.tooltip {
-  position: relative;
-  display: inline-block;
+/* Responsive */
+@media (max-width: 768px) {
+  .cursos-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .modal-content {
+    width: 90%;
+    margin: 20% auto;
+  }
+  
+  .btn-completar, .btn-desmarcar {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 10px;
+  }
 }
 
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 200px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -100px;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-}
-
-.btn-completar, .btn-desmarcar {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    margin-top: 15px;
-    transition: all 0.3s ease;
-}
-
-.btn-completar {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.btn-completar:hover {
-    background-color: #3e8e41;
-}
-
-.btn-completar:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
-}
-
-.btn-desmarcar {
-    background-color: #f44336;
-    color: white;
-    margin-left: 10px;
-}
-
-.btn-desmarcar:hover {
-    background-color: #d32f2f;
-}
-
-.btn-desmarcar:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
-}
-
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    10%, 30%, 50%, 70%, 90% { transform: translateX(-3px); }
-    20%, 40%, 60%, 80% { transform: translateX(3px); }
-}
-
-.shake-animation {
-    animation: shake 0.5s ease;
-}
-
-.curso.completado-bloqueado {
-    opacity: 1;
-    border-left: 5px solid #FF5722;
-    background-color: #FFCCBC;
-    cursor: not-allowed;
-}
-/* Mejora las animaciones existentes y agrega nuevas */
-.unlock-animation {
-    animation: unlock 0.5s ease, pulse 1s 0.5s;
-}
-
-.shake-animation {
-    animation: shake 0.5s ease, flash 0.5s;
-}
-
-@keyframes flash {
-    0%, 100% { background-color: inherit; }
-    50% { background-color: #FFEBEE; }
-}
-
-/* Estilo para tooltip de cursos bloqueados */
-.curso.completado-bloqueado::after {
-    content: "No puedes desmarcar - es requisito de otros cursos";
-    position: absolute;
-    bottom: 5px;
-    left: 5px;
-    right: 5px;
-    background-color: rgba(0,0,0,0.7);
-    color: white;
-    padding: 3px;
-    border-radius: 3px;
-    font-size: 0.7rem;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.curso.completado-bloqueado:hover::after {
-    opacity: 1;
+.curso.optativas {
+    background-color: var(--optativas);
+    border-left: 5px solid #9c27b0; /* Color morado para distinguir */
 }
